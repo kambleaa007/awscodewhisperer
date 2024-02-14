@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class GreetingController {
 
+	private final String lambda1String = "https://27gtedjlne.execute-api.us-east-1.amazonaws.com/default/ashishkamblelambda";
 
 	@RequestMapping("/")
 	public ModelAndView index(Model model) {

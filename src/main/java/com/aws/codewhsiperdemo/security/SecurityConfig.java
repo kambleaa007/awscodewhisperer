@@ -1,5 +1,13 @@
 package com.aws.codewhsiperdemo.security;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.web.server.SecurityWebFilterChain;
+
 // import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.context.annotation.Configuration;
 // import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -26,5 +34,16 @@ package com.aws.codewhsiperdemo.security;
 //     @Autowired
 //     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 //         auth.userDetailsService(userService);
+//     }
+// }
+
+// @Order(1)
+// @Configuration
+// @EnableWebFluxSecurity
+// public class SecurityConfig
+// {
+//     @Bean
+//     public SecurityWebFilterChain securitygWebFilterChain(ServerHttpSecurity http) {
+//         return http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //     }
 // }
