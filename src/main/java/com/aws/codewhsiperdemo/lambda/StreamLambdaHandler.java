@@ -10,28 +10,18 @@ import com.amazonaws.serverless.proxy.model.AwsProxyResponse;
 import com.amazonaws.serverless.proxy.spring.SpringBootLambdaContainerHandler;
 
 import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 import com.aws.codewhsiperdemo.CodewhsiperdemoApplication;
 
 // write a  stream lambda handler java class
-public class StreamLambdaHandler implements RequestStreamHandler {
-    private static SpringBootLambdaContainerHandler<AwsProxyRequest, AwsProxyResponse> handler;
+public class StreamLambdaHandler implements RequestHandler<Context, String> {
     
-    static {
-        try {
-            handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(CodewhsiperdemoApplication.class);
-            // If you are using HTTP APIs with the version 2.0 of the proxy model, use the getHttpApiV2ProxyHandler
-            // method: handler = SpringBootLambdaContainerHandler.getHttpApiV2ProxyHandler(Application.class);
-        } catch (ContainerInitializationException e) {
-            // if we fail here. We re-throw the exception to force another cold start
-            e.printStackTrace();
-            throw new RuntimeException("Could not initialize Spring Boot application", e);
-        }
-    }
 
     @Override
-    public void handleRequest(InputStream inputStream, OutputStream outputStream, Context context)
-            throws IOException {
-        handler.proxyStream(inputStream, outputStream, context);
+    public String handleRequest(Context arg0, Context arg1) {
+        
+        arg0.getLogger().log("logging arg1 is "+arg0+" arg2 is "+arg1);
+        return "Ran first lambda success";
     }
 }
