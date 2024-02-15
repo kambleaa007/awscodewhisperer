@@ -49,4 +49,8 @@ record InnerCricketWinner(String teamA, String teamB) {
     "teamA": "Aus",
     "teamB": "NZ"   
 }
+POSTMAN
+URL
+https://2qq2la1gfc.execute-api.us-east-1.amazonaws.com/default/cricketwinner
+POST BODY as above
 */
